@@ -12,7 +12,6 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private Button buttonStartGame;
-    private Button buttonOptions;
     private Button buttonPrivacyPolicy;
     private Button buttonExit;
     private Bundle savedInstanceState;
@@ -23,10 +22,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         buttonStartGame = findViewById(R.id.buttonStartGame);
-        buttonOptions = findViewById(R.id.buttonOptions);
         buttonPrivacyPolicy = findViewById(R.id.buttonPrivacyPolicy);
         buttonExit = findViewById(R.id.buttonExit);
-        Button[] buttons = new Button[]{buttonStartGame, buttonOptions, buttonPrivacyPolicy, buttonExit};
+        Button[] buttons = new Button[]{buttonStartGame, buttonPrivacyPolicy, buttonExit};
         for(Button b: buttons){
             b.setOnClickListener(onClickListener);
         }
@@ -43,14 +41,9 @@ public class MainActivity extends AppCompatActivity {
                     finish();
                     break;
                 case 1:
-                    Intent intentOptions = new Intent(MainActivity.this, OptionActivity.class);
-                    startActivity(intentOptions);
-                    finish();
-                    break;
-                case 2:
                     Toast.makeText(getApplicationContext(), "Policy is not yet implemented", Toast.LENGTH_SHORT).show();
                     break;
-                case 3:
+                case 2:
                     finishAffinity();
                     break;
             }
